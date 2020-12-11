@@ -39,7 +39,6 @@ def part_two(numbers, target):
 			curr_sum = numbers[begin_ptr]
 
 
-
 input_path = os.path.expanduser("~/git/advent_of_code_2020/challenge_9/input.txt")
 with open(input_path, "r") as input_fp:
 	numbers = [int(line.strip()) for line in input_fp.readlines()]
