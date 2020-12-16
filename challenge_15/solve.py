@@ -17,20 +17,27 @@ def add_num(numbers_to_turns, turn, num):
 	else:
 		numbers_to_turns[num] = [turn]
 
-def part_one(initial_list):
+def speak(initial_list, max_num):
 	numbers_to_turns = {}
 
 	for i, number in enumerate(initial_list):
 		numbers_to_turns[number] = [i+1]
 
 	last_num = initial_list[-1]
-	for turn in range(len(initial_list)+1, 30000001):
+	for turn in range(len(initial_list)+1, max_num+1):
 		num = proccess_last_val(numbers_to_turns, last_num)
 		add_num(numbers_to_turns, turn, num)
 		last_num = num
-		print(turn)
 
 	print(last_num)
+
+
+def part_one(initial_list):
+	speak(initial_list, 2020)
+
+
+def part_two(initial_list):
+	speak(initial_list, 30000000)
 
 
 def load_input():
@@ -43,3 +50,4 @@ input_path = os.path.expanduser("~/git/advent_of_code_2020/challenge_15/input.tx
 with open(input_path, "r") as input_fp:
 	initial_list = load_input()
 	part_one(initial_list)
+	part_two(initial_list)
